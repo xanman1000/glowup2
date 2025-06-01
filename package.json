@@ -1,0 +1,43 @@
+{
+  "name": "glowup-ai",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "mobile",
+    "web",
+    "shared"
+  ],
+  "scripts": {
+    "dev:mobile": "cd mobile && npm start",
+    "dev:web": "cd web && npm run dev",
+    "dev:backend": "cd backend && uvicorn app.main:app --reload",
+    "build:all": "npm run build --workspaces",
+    "lint:all": "npm run lint --workspaces",
+    "type-check:all": "npm run type-check --workspaces",
+    "test:all": "npm run test --workspaces",
+    "install:backend": "cd backend && pip install -r requirements.txt",
+    "setup": "npm install && npm run install:backend",
+    "clean": "npm run clean --workspaces && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "concurrently": "^8.2.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  }
+}
