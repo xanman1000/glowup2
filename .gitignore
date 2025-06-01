@@ -1,0 +1,10 @@
+node_modules/
+.env
+.DS_Store
+coverage/
+ios/build/
+android/build/
+.expo/
+.vscode/
+temp/
+*.log 
